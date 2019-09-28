@@ -19,11 +19,10 @@ public class MainActivity extends AppCompatActivity {
         scannerBtn = findViewById(R.id.scannerBtn);
 
         final Intent intent = getIntent();
-        String vehicle_id = intent.getStringExtra("user");
-
+        String vehicle_id = ((Globals) MainActivity.this.getApplication()).getVehicleID();
         if (vehicle_id != null){
             TextView user = findViewById(R.id.main_id);
-            user.setText(vehicle_id);
+            user.setText("Your Vehicle ID  : " +vehicle_id);
         }
 
         scannerBtn.setOnClickListener(new View.OnClickListener() {
