@@ -3,4 +3,7 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="validTokenBack">#5CC3FF98</color>
+    <color name="invalidTokenBack">#FDEA94</color>
+    <color name="usedTokenBack">#FC9F9D</color>
 </resources>

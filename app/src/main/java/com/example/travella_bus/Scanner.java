@@ -110,7 +110,7 @@ public class Scanner extends AppCompatActivity {
                             cameraSource.stop();
                             Vibrator vibrator = (Vibrator) getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
                             vibrator.vibrate(1000);
-                            outPutTextView.setText(qrCodes.valueAt(0).displayValue);
+                            //outPutTextView.setText(qrCodes.valueAt(0).displayValue);
 
                             Intent intent = new Intent( Scanner.this, TokenView.class);
                             intent.putExtra("token", qrCodes.valueAt(0).displayValue);

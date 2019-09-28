@@ -17,6 +17,8 @@ public class Splash extends AppCompatActivity {
 
         loginBtn = findViewById(R.id.login_btn);
 
+        ((Globals) this.getApplication()).setVehicleID("142");
+
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
