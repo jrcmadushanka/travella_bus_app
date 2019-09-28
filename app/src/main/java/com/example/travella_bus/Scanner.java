@@ -2,6 +2,7 @@ package com.example.travella_bus;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.VibrationEffect;
@@ -38,26 +39,19 @@ public class Scanner extends AppCompatActivity {
                 Manifest.permission.CAMERA)
                 != PackageManager.PERMISSION_GRANTED) {
 
-            // Permission is not granted
-            // Should we show an explanation?
             if (ActivityCompat.shouldShowRequestPermissionRationale(this,
                     Manifest.permission.CAMERA)) {
-                // Show an explanation to the user *asynchronously* -- don't block
-                // this thread waiting for the user's response! After the user
-                // sees the explanation, try again to request the permission.
+
             } else {
-                // No explanation needed; request the permission
                 ActivityCompat.requestPermissions(this,
                         new String[]{Manifest.permission.CAMERA},
                         1237);
                 finish();
                 startActivity(getIntent());
-                // MY_PERMISSIONS_REQUEST_READ_CONTACTS is an
-                // app-defined int constant. The callback method gets the
-                // result of the request.
+
             }
         } else {
-            // Permission has already been granted
+
         }
 
         SurfaceView surfaceView = (SurfaceView) findViewById(R.id.surfaceView);
@@ -113,9 +107,16 @@ public class Scanner extends AppCompatActivity {
                         @RequiresApi(api = Build.VERSION_CODES.O)
                         @Override
                         public void run() {
+                            cameraSource.stop();
                             Vibrator vibrator = (Vibrator) getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
-                            vibrator.vibrate(VibrationEffect.createOneShot(1000,2));
-                            outPutTextView.setText(qrCodes.valueAt(0).displayValue);
+                            vibrator.vibrate(1000);
+                            //outPutTextView.setText(qrCodes.valueAt(0).displayValue);
+
+                            Intent intent = new Intent( Scanner.this, TokenView.class);
+                            intent.putExtra("token", qrCodes.valueAt(0).displayValue);
+                            startActivity(intent);
+                            finish();
+
                         }
                     });
                 }
