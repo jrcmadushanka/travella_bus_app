@@ -56,7 +56,7 @@ public class TokenView extends AppCompatActivity {
         delete = findViewById(R.id.deletButton);
 
         procced.setEnabled(false);
-        procced.setVisibility(View.GONE);
+        delete.setVisibility(View.GONE);
 
         procced.setOnClickListener(new View.OnClickListener() {
             @Override
